@@ -1,0 +1,134 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Project_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Contact_Info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "client-contact.client-contact"
+    },
+    "Go_Live_Date": {
+      "type": "date"
+    },
+    "Account_Manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "Lead_Developer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "Lead_Designer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "crm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::crm.crm"
+    },
+    "Support_Manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "Support_Hrs": {
+      "type": "string"
+    },
+    "Support_Document_Link": {
+      "type": "string"
+    },
+    "Slack_Channel": {
+      "type": "string"
+    },
+    "Server": {
+      "type": "string"
+    },
+    "Site_Code": {
+      "type": "string"
+    },
+    "Key_Features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project-key-features.project-key-features"
+    },
+    "DevOps_Deatils": {
+      "type": "component",
+      "repeatable": true,
+      "component": "project-dev-ops.project-dev-ops"
+    },
+    "Sector": {
+      "type": "enumeration",
+      "enum": [
+        "Property",
+        "Mortgaging"
+      ]
+    },
+    "Active": {
+      "type": "boolean",
+      "required": true
+    },
+    "Client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client"
+    },
+    "Stack": {
+      "type": "enumeration",
+      "enum": [
+        "Joomla - LAMP Stack",
+        "JAM Stack",
+        "Webflow",
+        "Word Press - LAMP Stack"
+      ]
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Channel_Info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.channel-info"
+    },
+    "Site_Url": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.site-url"
+    },
+    "Team_Detail": {
+      "displayName": "Team_Detail",
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.team-detail"
+    },
+    "SEO": {
+      "type": "enumeration",
+      "enum": [
+        "No",
+        "Yes"
+      ]
+    }
+  }
+}

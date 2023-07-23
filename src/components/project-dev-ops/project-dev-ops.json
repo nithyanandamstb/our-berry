@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_project_dev_ops_project_dev_ops",
+  "info": {
+    "displayName": "Project_DevOps",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Value": {
+      "type": "text"
+    },
+    "Details": {
+      "type": "richtext"
+    }
+  }
+}

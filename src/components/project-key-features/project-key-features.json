@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_project_key_features_project_key_features",
+  "info": {
+    "displayName": "Project_Key_Features",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "enumeration",
+      "enum": [
+        "GGFX",
+        "Data Dashboard",
+        "Grunt"
+      ]
+    },
+    "Details": {
+      "type": "string"
+    },
+    "Enable": {
+      "type": "boolean"
+    }
+  }
+}

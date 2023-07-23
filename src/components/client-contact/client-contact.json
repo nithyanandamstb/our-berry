@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_client_contact_client_contacts",
+  "info": {
+    "displayName": "Client_Contact",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "Person_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email_Id": {
+      "type": "email",
+      "required": true
+    },
+    "Phone_Number": {
+      "type": "string"
+    }
+  }
+}

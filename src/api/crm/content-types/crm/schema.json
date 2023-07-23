@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crms",
+  "info": {
+    "singularName": "crm",
+    "pluralName": "crms",
+    "displayName": "CRM"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CRM": {
+      "type": "string",
+      "required": true
+    },
+    "CRM_Access": {
+      "type": "enumeration",
+      "enum": [
+        "API",
+        "SQL View"
+      ],
+      "required": true
+    }
+  }
+}

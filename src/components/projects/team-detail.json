@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_projects_team_details",
+  "info": {
+    "displayName": "Team_Detail",
+    "icon": "shield",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Role": {
+      "type": "enumeration",
+      "enum": [
+        "Account Manager",
+        "Lead Developer",
+        "Lead Designer",
+        "Backend Developer",
+        "Support Manager",
+        "SEO Manager",
+        "SEO Lead"
+      ]
+    },
+    "Name": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

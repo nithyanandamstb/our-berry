@@ -1,0 +1,25 @@
+.project-details-box {
+    background-color:#ffffff;
+    margin:20px;
+    border:dotted 1px #4945ff;
+    border-radius:15px;
+    .logo-box{
+        text-align: center;
+    }
+    .logo {
+        width: 80%;
+    }
+    .section {
+        .title {
+            padding-bottom: 5px;
+            .sub-title{
+                text-decoration: underline;
+            }
+        }
+        border-bottom: dotted 1px #4945ff;
+    }
+    .inner-section {
+        padding-top: 3%;
+    }
+    
+}
