@@ -16,10 +16,26 @@
                 text-decoration: underline;
             }
         }
-        border-bottom: dotted 1px #4945ff;
+        padding-bottom: 20px;
+        border-bottom: solid 1px #000000;
     }
     .inner-section {
         padding-top: 3%;
     }
-    
+    .yes-span {
+        background-color: #00A000;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 3px;
+        border-radius:5px;
+    }
+    .no-span {
+        background-color: red;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 3px;
+        border-radius:5px;
+    }
 }

@@ -69,6 +69,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::designation.designation"
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

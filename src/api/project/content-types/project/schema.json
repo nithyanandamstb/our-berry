@@ -19,7 +19,7 @@
     "Contact_Info": {
       "type": "component",
       "repeatable": true,
-      "component": "client-contact.client-contact"
+      "component": "projects.client-contact"
     },
     "Go_Live_Date": {
       "type": "date"
@@ -67,12 +67,12 @@
     "Key_Features": {
       "type": "component",
       "repeatable": true,
-      "component": "project-key-features.project-key-features"
+      "component": "projects.project-key-features"
     },
     "DevOps_Deatils": {
       "type": "component",
       "repeatable": true,
-      "component": "project-dev-ops.project-dev-ops"
+      "component": "projects.project-dev-ops"
     },
     "Sector": {
       "type": "enumeration",
@@ -117,18 +117,22 @@
       "repeatable": true,
       "component": "projects.site-url"
     },
-    "Team_Detail": {
-      "displayName": "Team_Detail",
-      "type": "component",
-      "repeatable": true,
-      "component": "projects.team-detail"
-    },
     "SEO": {
       "type": "enumeration",
       "enum": [
         "No",
         "Yes"
       ]
+    },
+    "Project_Manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "SEO_Manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

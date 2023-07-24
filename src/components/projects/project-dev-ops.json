@@ -2,7 +2,8 @@
   "collectionName": "components_project_dev_ops_project_dev_ops",
   "info": {
     "displayName": "Project_DevOps",
-    "icon": "earth"
+    "icon": "earth",
+    "description": ""
   },
   "options": {},
   "attributes": {
