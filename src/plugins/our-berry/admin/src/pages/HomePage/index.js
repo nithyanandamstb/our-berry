@@ -11,11 +11,12 @@ import Header from '../../components/Header/header'
 import ProjectList from '../../components/Projects/project-list'
 
 const HomePage = () => {
-  const [search_value, setValue] = useState('');
+  const [search_value, setValue] = useState('All');
+  console.log("log",search_value)
   return (
     <div>
-      <Header />
-      <ProjectList search_value={""}/>
+      <Header onSearch={setValue}/>
+      <ProjectList search={search_value}/>
     </div>
   );
 };

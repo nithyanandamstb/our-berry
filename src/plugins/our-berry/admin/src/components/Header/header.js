@@ -9,13 +9,18 @@ import React, {useState} from 'react';
 import pluginId from '../../pluginId';
 import { BaseHeaderLayout, Box, Searchbar, SearchForm } from '@strapi/design-system';
 
-const Header = () => {
+const Header = (props) => {
   const [value, setValue] = useState('');
+  if(value.length>1) {
+    props.onSearch(value);
+  } else {
+    props.onSearch("All");
+  }
   return (
       <Box background="neutral100">
       <BaseHeaderLayout primaryAction={
         <SearchForm>
-        <Searchbar name="searchbar" onClear={() => setValue('')} value={value} onChange={e => setValue(e.target.value)} clearLabel="Clearing the plugin search" placeholder="e.g: handh" size="m">
+        <Searchbar name="search_key" onClear={() => setValue('')} value={value} onChange={e => setValue(e.target.value)} clearLabel="Clearing the plugin search" placeholder="e.g: handh">
           Searching for a project
         </Searchbar>
       </SearchForm>

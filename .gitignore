@@ -45,6 +45,7 @@ $RECYCLE.BIN/
 *.jar
 *.rar
 *.tar
+*.zip
 *.com
 *.class
 *.dll
@@ -66,6 +67,7 @@ $RECYCLE.BIN/
 
 .tmp
 *.log
+#*.sql
 *.sqlite
 *.sqlite3
 

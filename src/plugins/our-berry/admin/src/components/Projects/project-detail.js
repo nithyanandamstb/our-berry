@@ -10,7 +10,8 @@ import {
     Grid,
     GridItem,
     Initials,
-    Flex
+    Flex,
+    Link
 } from '@strapi/design-system';
 
 const ProjectDetail = (props) => {
@@ -18,10 +19,10 @@ const ProjectDetail = (props) => {
     const teams = ['Account_Manager','Support_Manager','Lead_Developer','Lead_Designer','SEO_Manager'];
     if(props.project_id) {
         const [isLoading, setIsLoading] = useState(true);        
-        const getProjectDetail = () => {
+        const getProjectDetail = async () => {
             if(isLoading===false) setIsLoading(true);
             const axios = require('axios');
-            axios.get(process.env.STRAPI_ADMIN_APIURL+'/'+process.env.STRAPI_ADMIN_PLUGIN_NAME+'/get-project-details',{
+            await axios.get(process.env.STRAPI_ADMIN_APIURL+'/'+process.env.STRAPI_ADMIN_PLUGIN_NAME+'/get-project-details',{
                 params: {project_id:props.project_id}
             }).then(response => {
                 setProjectDetails(response.data);
@@ -29,16 +30,17 @@ const ProjectDetail = (props) => {
             }).catch(error => {
                 console.error(error);
             });
+            return null;
         }
         useEffect(() => {
             getProjectDetail();
-        }, []);
-        console.log("log",teams);
+        }, [props]);
     }
     return(
-        <>
+        <>        
         {projectDetails && props.project_id &&
         <Box padding={8} className="project-details-box">
+            <Link to={"/plugins/our-berry/"}>Back</Link>
             <TwoColsLayout startCol={<Box padding={4}>
                 <Typography variant="alpha">{projectDetails?.Slack_Channel}</Typography>
             </Box>} endCol={<Box padding={4} className="logo-box">
@@ -84,6 +86,9 @@ const ProjectDetail = (props) => {
                     <GridItem col={4} s={12}>
                         <Typography variant="delta">Support Hrs: </Typography>
                         <Typography variant="epsilon">{projectDetails?.Support_Hrs}</Typography>
+                        {projectDetails?.Support_Document_Link &&
+                            <p><Link href={projectDetails?.Support_Document_Link}>Document</Link></p>
+                        }
                     </GridItem>
                     <GridItem col={4} s={12}>
                         <Typography variant="delta">Active: </Typography>
@@ -116,30 +121,10 @@ const ProjectDetail = (props) => {
                             </Grid>
                     </GridItem>
                 }
-                {projectDetails?.Site_Url &&
-                    <GridItem col={4} s={12}>
-                        <div className="title"> 
-                            <Typography variant="beta" className="sub-title">Channel Info</Typography>
-                        </div>
-                            <Grid gap={{
-                                desktop: 1,
-                                tablet: 2,
-                                mobile: 1
-                            }}>
-                                {projectDetails && projectDetails?.Site_Url.map((ci, ciid)=> ci && 
-                                    <GridItem col={12} s={12}>
-                                        <Typography variant="omega" fontWeight="semiBold">{ci?.Name}: </Typography>
-                                        <Typography variant="pi"><a href={"mailto:"+ci?.Link}>{ci?.Link}</a></Typography>                        
-                                    </GridItem>
-                                )
-                                }
-                            </Grid>
-                    </GridItem>
-                }
                 {projectDetails?.Channel_Info &&
                     <GridItem col={5} s={12}>
                         <div className="title"> 
-                            <Typography variant="beta" className="sub-title">Site URL</Typography>
+                            <Typography variant="beta" className="sub-title">Channel URL</Typography>
                         </div>
                             <Grid gap={{
                                 desktop: 1,
@@ -156,6 +141,27 @@ const ProjectDetail = (props) => {
                             </Grid>
                     </GridItem>
                 }
+                {projectDetails?.Site_Url &&
+                    <GridItem col={4} s={12}>
+                        <div className="title"> 
+                            <Typography variant="beta" className="sub-title">Site Url</Typography>
+                        </div>
+                            <Grid gap={{
+                                desktop: 1,
+                                tablet: 2,
+                                mobile: 1
+                            }}>
+                                {projectDetails && projectDetails?.Site_Url.map((ci, ciid)=> ci && 
+                                    <GridItem col={12} s={12}>
+                                        <Typography variant="omega" fontWeight="semiBold">{ci?.Name}: </Typography>
+                                        <Typography variant="pi"><a href={"mailto:"+ci?.Link}>{ci?.Link}</a></Typography>                        
+                                    </GridItem>
+                                )
+                                }
+                            </Grid>
+                    </GridItem>
+                }
+                
             </Grid>
             <Grid className="section inner-section" gap={{
                     desktop: 1,

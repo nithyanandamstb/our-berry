@@ -3,22 +3,27 @@
 module.exports = ({ strapi }) => ({
   async get_projects(ctx) {
     var dashBoard = [];        
-    try {  
+    try {
+        let searchKeys = ctx?.query?.search_keys;
         let modelName = "api::project.project";
-        let wQry = {};
+        let wQry = {Active: true};
+        if(searchKeys!="All") {
+          wQry["Slack_Channel"] = { $contains: searchKeys }
+        }
         var subBoard = {}
+        console.log(wQry)
         if(modelName){
           dashBoard = await strapi.db.query(modelName).findMany({
             select: ['id', 'Project_Name','Stack'],
-            where: { Active: true },
-            orderBy: { Project_Name: 'DESC' },
+            where: wQry,
+            orderBy: { id: 'ASC' },
             populate: ['Client','Client.Logo'],
           });
         }   
         return await new Promise(resolve => {
             setTimeout(() => {
               resolve(dashBoard)
-            }, 2000)
+            }, 200)
         });
     } catch (error) {
         ctx.throw(500, error);
@@ -40,10 +45,10 @@ module.exports = ({ strapi }) => ({
         return await new Promise(resolve => {
             setTimeout(() => {
               resolve(dashBoard)
-            }, 500)
+            }, 200)
         });
     } catch (error) {
-        ctx.throw(500, error);
+        ctx.throw(200, error);
     }        
   },
 });
